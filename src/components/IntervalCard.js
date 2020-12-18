@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Intervals = ({note}) => {
+const IntervalCard = ({note}) => {
   return (
     <div className='interval-card'>
       <p className='card-title'>Sing the Interval Below:</p>
@@ -9,4 +9,4 @@ const Intervals = ({note}) => {
   );
 }
 
-export default Intervals;
+export default IntervalCard;

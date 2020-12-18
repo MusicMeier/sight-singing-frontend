@@ -1,22 +1,18 @@
-import React, { useState, useEffect } from 'react';
-// import IntervalsContainer from './components/IntervalsContainer'
-import SightSinging from './SightSinging'
-
-const notesUrl = 'http://localhost:8003/notes'
-
+import React from 'react';
+import { Link } from 'react-router-dom'
 const HomePage = () => {
 
-  const [ notes, setNotes ] = useState([])
-
-  useEffect(() => {
-    fetch(notesUrl)
-      .then(response => response.json())
-      .then((notes) => setNotes(notes))
-  }, [])
-
   return (
-    <div>
-      <SightSinging notes={notes}/>
+    <div className='home-container'>
+      <div className='home-ear-training'>
+        <h1>You're Home!</h1>
+      </div>
+      <div className='home-sight-singing'>
+        <img src="https://i.imgur.com/aVYCFeI.png" alt='bird-singing'/>
+        <Link to='/SightSinging'>
+          <button className='sight-singing-home'>Sight Singing</button>
+        </Link>
+      </div>
     </div>
   );
 }
