@@ -10,7 +10,7 @@ const SecondIntervals = ({intervalNotes}) => {
           {utilities.eachIntervalNote(intervalNotes)[0]}
       </div>
       <div className='button-container-intervals'>
-        <button>Next</button>
+        <button className='screen-button'>Next</button>
       </div>
       <footer >
         <Link to='/ThirdIntervals' className='footer-button-link'>
