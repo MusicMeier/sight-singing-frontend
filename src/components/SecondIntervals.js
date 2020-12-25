@@ -1,6 +1,7 @@
 import React from 'react';
 import utilities from './Utilities'
 import { Link } from 'react-router-dom'
+import Tuner from './Tuner'
 
 const SecondIntervals = ({intervalNotes}) => {
 
@@ -11,6 +12,7 @@ const SecondIntervals = ({intervalNotes}) => {
       </div>
       <div className='button-container-intervals'>
         <button className='screen-button'>Next</button>
+        <Tuner />
       </div>
       <footer >
         <Link to='/ThirdIntervals' className='footer-button-link'>
