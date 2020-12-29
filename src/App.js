@@ -25,7 +25,6 @@ function App() {
 
   const filterNotes = (selectedInterval) => {
     return notes.filter(note => {
-      console.log(note)
       return note.interval === selectedInterval
     })
   }

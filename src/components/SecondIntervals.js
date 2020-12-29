@@ -5,14 +5,16 @@ import Tuner from './Tuner'
 
 const SecondIntervals = ({intervalNotes}) => {
 
+  let eachNoteObject = utilities.eachIntervalNote(intervalNotes)[0]
+
   return (
     <>
       <div className='interval-card-container'>
-          {utilities.eachIntervalNote(intervalNotes)[0]}
+          {eachNoteObject}
       </div>
       <div className='button-container-intervals'>
         <div className='tuner-container'>
-          <Tuner />
+          <Tuner noteObject={intervalNotes[0]}/>
         </div>
         <div>
           <button className='screen-button'>Next</button>
