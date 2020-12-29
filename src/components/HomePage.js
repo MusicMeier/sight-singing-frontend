@@ -1,20 +1,33 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-const HomePage = () => {
+import { Redirect } from 'react-router-dom'
+import { connect } from  'react-redux'
+import Login from './Login'
+
+const HomePage = ( {isAuthenticated} ) => {
+  console.log(isAuthenticated)
+  // const loggedIn = (
+  //   <Redirect to='/mainpage'/>
+  // )
+
+  // const notLoggedIn = (
+  //     <Link to='/login'></Link>
+  // )
 
   return (
-    <div className='home-container'>
-      <div className='home-ear-training'>
-        <h1>You're Home!</h1>
-      </div>
-      <div className='home-sight-singing'>
-        <img src="https://i.imgur.com/aVYCFeI.png" alt='bird-singing'/>
-        <Link to='/SightSinging'>
-          <button className='sight-singing-home'>Sight Singing</button>
-        </Link>
+    <div>
+      <p>Welcome to my Auth Screen Home page</p>
+      <div>
+        <span>
+          <> {isAuthenticated ? <Redirect to='/mainpage'/> : <Login />}</>
+        </span>
       </div>
     </div>
   );
 }
 
-export default HomePage;
+const mapDispatchProps = (state) => {
+  return {
+    isAuthenticated: state.auth.isAuthenticated
+  }
+}
+export default connect(mapDispatchProps)(HomePage);

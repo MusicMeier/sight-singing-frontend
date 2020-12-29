@@ -9,7 +9,14 @@ import FourthIntervals from './components/FourthIntervals'
 import FifthIntervals from './components/FifthIntervals'
 import SixthIntervals from './components/SixthIntervals'
 import SeventhIntervals from './components/SeventhIntervals'
-import Header from './components/Header'
+// import Header from './components/Header'
+import Layout from './hoc/Layout'
+import Login from './components/Login'
+import SignUp from './components/SignUp'
+import MainPage from './components/MainPage'
+
+// import { Provider } from 'react-redux'
+// import store from './'
 
 const notesUrl = 'http://localhost:8003/notes'
 
@@ -31,10 +38,26 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Layout />
       <Switch>
+        <Route path="/signup" render={(routerProps) => {
+          return <SignUp {...routerProps}/> 
+        }} 
+          />
+        <Route path="/login" render={(routerProps) => {
+          return <Login {...routerProps}/> 
+        }} 
+          />
         <Route path="/SightSinging" render={(routerProps) => {
           return <SightSinging notes={notes} {...routerProps}/> 
+        }} 
+          />
+        {/* <Route path="/homepage" render={(routerProps) => {
+          return <HomePage {...routerProps}/> 
+        }} 
+          /> */}
+        <Route path="/mainpage" render={(routerProps) => {
+          return <MainPage {...routerProps}/> 
         }} 
           />
         <Route path="/SecondIntervals" render={(routerProps) => {
@@ -61,7 +84,10 @@ function App() {
           return <SeventhIntervals intervalNotes={filterNotes('seventh')}  {...routerProps}/> 
         }} 
           />
-        <Route exact path='/' component={HomePage} />
+        <Route exact path="/" render={(routerProps) => {
+          return <HomePage {...routerProps}/> 
+        }} 
+          />
       </Switch>
     </div>
   );
