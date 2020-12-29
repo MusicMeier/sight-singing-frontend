@@ -11,8 +11,12 @@ const SecondIntervals = ({intervalNotes}) => {
           {utilities.eachIntervalNote(intervalNotes)[0]}
       </div>
       <div className='button-container-intervals'>
-        <button className='screen-button'>Next</button>
-        <Tuner />
+        <div className='tuner-container'>
+          <Tuner />
+        </div>
+        <div>
+          <button className='screen-button'>Next</button>
+        </div>
       </div>
       <footer >
         <Link to='/ThirdIntervals' className='footer-button-link'>
