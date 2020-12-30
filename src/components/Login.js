@@ -25,25 +25,30 @@ const Login = ({ login, check_authenticated }) => {
   return (
     <>
       <div className='login-page'>
-        <h1>Sign in to your account</h1>
-        <form onSubmit={(event) => onSubmit(event)} className='login-form'>
-          <input 
-            type="text" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='username'
-            placeholder='username' />
-            <br />
-          <input 
-            type="password" 
-            onChange={(event) => onChange(event)} 
-            autoComplete='on'
-            name='password'
-            placeholder='password' />
-          <button type='submit' className='login-button'>LOGIN</button>
-        </form>
-        <br />
-        <h6>Don't have an account <Link to='/signup'>Create Account</Link></h6>
+        <div className='form-section-1'>
+          <h1>Sign in to your account</h1>
+        </div>
+        <div className='form-section-2'>
+          <form onSubmit={(event) => onSubmit(event)} className='login-form'>
+            <input 
+              type="text" 
+              onChange={(event) => onChange(event)} 
+              autoComplete='on'
+              name='username'
+              placeholder='username' />
+              <br />
+            <input 
+              type="password" 
+              onChange={(event) => onChange(event)} 
+              autoComplete='on'
+              name='password'
+              placeholder='password' />
+            <button type='submit' className='login-button'>LOGIN</button>
+          </form>
+        </div>
+        <div className='form-section-3'>
+          <h6>Don't have an account <Link to='/signup'>Create Account</Link></h6>
+        </div>
       </div>
     </>
   );

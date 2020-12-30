@@ -1,23 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import utilities from './Utilities'
 import { Link } from 'react-router-dom'
 import Tuner from './Tuner'
 
 const SecondIntervals = ({intervalNotes}) => {
+  const [showHint, setShowHint] = useState(false)
+  const [index, setIndex] = useState(0)
 
-  let eachNoteObject = utilities.eachIntervalNote(intervalNotes)[0]
+  const increment = () => {
+    if(index < intervalNotes.length -1 ){
+      setIndex(index + 1)
+    } else if (index === (intervalNotes.length - 1 )){
+      setIndex(0)
+    }
+  }
+  
+  const toggleHint = () => {
+    console.log('you clicked me')
+    setShowHint(!showHint)
+  }
+  
+  const handleClick = () => {
+    increment()
+  }
+
+  let eachNoteObject = utilities.eachIntervalNote(intervalNotes)[index]
 
   return (
-    <>
+  <div>
+    <div className='hint-container'>
+      {
+        showHint ? <p>🎶Do-Re-Mi🎶</p> : ""
+      }
+      <button className='hint-button' onClick={toggleHint}>{showHint ? "Hide Hint" : "Show Hint"}</button>
+    </div>
       <div className='interval-card-container'>
           {eachNoteObject}
       </div>
       <div className='button-container-intervals'>
         <div className='tuner-container'>
-          <Tuner noteObject={intervalNotes[0]}/>
+          <Tuner noteObject={intervalNotes[index]}/>
         </div>
         <div>
-          <button className='screen-button'>Next</button>
+          <button onClick={handleClick} className='screen-button'>Next</button>
         </div>
       </div>
       <footer >
@@ -37,7 +62,8 @@ const SecondIntervals = ({intervalNotes}) => {
           <button className='footer-button'>Seventh</button>
         </Link>
       </footer>
-    </>
+      </div>
+
   );
 }
 

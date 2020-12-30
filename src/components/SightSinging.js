@@ -8,7 +8,7 @@ const SightSinging = () => {
       <div className='sight-singing-container'>
         <div className='sight-singing-title'>
           <p>Choose an Interval!</p>
-          <img src='https://www.musical-u.com/wp-content/uploads/2013/03/intervals-1.jpg' />
+          <img src='https://www.musical-u.com/wp-content/uploads/2013/03/intervals-1.jpg' alt='bird-singing' />
         </div>
         <div className='buttons-container'>
           <Link to='/SecondIntervals' className='button-link'>

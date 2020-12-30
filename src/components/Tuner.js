@@ -82,13 +82,15 @@ function createOscillator(frequency) {
   const volume = audio.createGain()
   oscillator.connect(volume)
   volume.connect(audio.destination)
-  volume.gain.value = 0.1
+  volume.gain.value = 0.01
+  console.log('a number', volume.gain.value)
+  
   return oscillator
 }
 
 function pitchIsCorrect(frequency){
-  const lowerBoundary = 255 // Boundary of A
-  const upperBoundary = 268 // Boundary of A
+  const lowerBoundary = 255 // Boundary of C
+  const upperBoundary = 268 // Boundary of C
 
   return frequency > lowerBoundary && frequency < upperBoundary
 }

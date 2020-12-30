@@ -18,14 +18,14 @@ import MainPage from './components/MainPage'
 // import { Provider } from 'react-redux'
 // import store from './'
 
-const notesUrl = 'http://localhost:8003/notes'
+const frequenciesUrl = 'http://localhost:8003/frequencies'
 
 function App() {
 
   const [ notes, setNotes ] = useState([])
 
   useEffect(() => {
-    fetch(notesUrl)
+    fetch(frequenciesUrl)
       .then(response => response.json())
       .then(result => setNotes(result))
   }, [])
