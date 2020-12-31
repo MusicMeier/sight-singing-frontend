@@ -16,7 +16,6 @@ const SecondIntervals = ({intervalNotes}) => {
   }
   
   const toggleHint = () => {
-    console.log('you clicked me')
     setShowHint(!showHint)
   }
   
@@ -25,14 +24,14 @@ const SecondIntervals = ({intervalNotes}) => {
   }
 
   let eachNoteObject = utilities.eachIntervalNote(intervalNotes)[index]
-
+  
   return (
   <div>
     <div className='hint-container'>
+      <button className='hint-button' onClick={toggleHint}>{showHint ? "Hide Hint" : "Show Hint"}</button>
       {
         showHint ? <p>🎶Do-Re-Mi🎶</p> : ""
       }
-      <button className='hint-button' onClick={toggleHint}>{showHint ? "Hide Hint" : "Show Hint"}</button>
     </div>
       <div className='interval-card-container'>
           {eachNoteObject}

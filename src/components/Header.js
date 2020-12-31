@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logout} from '../actions/action.auth'
 
-const Header = ({logout}) => {
+const Header = ({logout, isAuthenticated}) => {
   return (
     <header className='nav-bar'>
       <h1 className='header-title'>TheoryHelper</h1>

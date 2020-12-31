@@ -16,7 +16,6 @@ const SixthIntervals = ({intervalNotes}) => {
   }
   
   const toggleHint = () => {
-    console.log('you clicked me')
     setShowHint(!showHint)
   }
   
@@ -29,10 +28,10 @@ const SixthIntervals = ({intervalNotes}) => {
   return (
     <>
     <div className='hint-container'>
+      <button className='hint-button' onClick={toggleHint}>{showHint ? "Hide Hint" : "Show Hint"}</button>
       {
         showHint ? <p>🎶N B C🎶</p> : ""
       }
-      <button className='hint-button' onClick={toggleHint}>{showHint ? "Hide Hint" : "Show Hint"}</button>
     </div>
       <div className='interval-card-container'>
         {eachNoteObject}

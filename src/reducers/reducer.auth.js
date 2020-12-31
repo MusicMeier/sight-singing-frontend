@@ -14,11 +14,20 @@ const initialState = {
   user: null
 }
 
-export default function(state = initialState, action){
+export default function (state = initialState, action) {
   const { type, payload } = action;
   
   switch(type){
+    case AUTHENTICATION_SUCCESS:
+      return {
+        ...state,
+        isAuthenticated: true,
+        // access: payload.token
+        user: payload
+
+      }
     case LOGIN_SUCCESS:
+    case SIGNUP_SUCCESS:
         localStorage.setItem('access', payload.token);
         return {
           ...state,
@@ -26,33 +35,17 @@ export default function(state = initialState, action){
           access: payload.token
         }
     case LOGIN_FAILED:
-    case LOGOUT_USER:
     case SIGNUP_FAILED:
+    case LOGOUT_USER:
+    case AUTHENTICATION_FAILED:
         localStorage.removeItem('access');
         return {
           ...state,
+          access: null,
           isAuthenticated: false,
           user: null
         }
-    case SIGNUP_SUCCESS:
-      return {
-        ...state,
-        isAuthenticated: false
-      }
-    case AUTHENTICATION_SUCCESS:
-      return {
-        ...state,
-        isAuthenticated: true,
-        access: payload.token
-      }
-    case AUTHENTICATION_FAILED:
-      return {
-        ...state,
-        isAuthenticated: false,
-        access: null
-      }
     default:
       return state;
   }
-
 }
