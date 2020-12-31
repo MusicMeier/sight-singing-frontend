@@ -59,9 +59,9 @@ function Tuner({noteObject}) {
 
   return (
     <div className="Tuner">
-      <h1>Can you sing an {noteObject.interval} interval?</h1>
+      <h1>Can you sing an interval?</h1>
       { shouldDisplayPitch ? <div className="pitch">{pitchText}</div> : "" }
-      { shouldDisplaySuccess ? <p className="success">You sang {noteObject.noteName[0]} note!</p> : "" }
+      { shouldDisplaySuccess ? <p className="success">You sang a note!</p> : "" }
 
       { shouldDisplayPlay ? <button className="play" onClick={handlePlay}>Play Tone</button> : "" }
     </div>
