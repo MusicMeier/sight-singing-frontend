@@ -4,8 +4,6 @@ import { useState, useEffect } from "react"
 
 function Tuner({noteObject}) {
 
-  console.log(noteObject)
-
   const model = 'https://cdn.jsdelivr.net/gh/ml5js/ml5-data-and-models/models/pitch-detection/crepe/';
   const oscillator = createOscillator(noteObject.frequency[0])
   console.log(noteObject.frequency[0])
@@ -88,9 +86,7 @@ function createOscillator(frequency) {
 
 function pitchIsCorrect(frequency, noteObject){
   const lowerBoundaryTuner = noteObject.lowerBoundary[0]// Boundary of current note
-  console.log("a number", noteObject.lowerBoundary[0])
   const upperBoundaryTuner = noteObject.upperBoundary[0]// Boundary of current note
-  console.log("a number", noteObject.upperBoundary[0])
   
   return frequency > lowerBoundaryTuner && frequency < upperBoundaryTuner
 }
