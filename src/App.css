@@ -152,10 +152,6 @@ header a {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
 }
 
-input {
-  margin-top: 15px;
-}
-
 .form-section-1 {
   padding-top: 60px;
   /* position: relative;
@@ -180,7 +176,6 @@ input {
 .login-form {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
   margin: auto;
   width: 400px;
 }
@@ -200,6 +195,8 @@ input {
 
 input {
   border-radius: 4px;
+  margin-top: 15px;
+  margin-bottom: 0;
   border: none;
   padding-top: 6px;
   padding-bottom: 6px;
