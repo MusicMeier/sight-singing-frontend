@@ -38,7 +38,7 @@ const SecondIntervals = ({intervalNotes}) => {
       </div>
       <div className='button-container-intervals'>
         <div className='tuner-container'>
-          <Tuner noteObject={intervalNotes[index]}/>
+          <Tuner nextButton={handleClick} noteObject={intervalNotes[index]}/>
         </div>
         <div>
           <button onClick={handleClick} className='screen-button'>Next</button>
