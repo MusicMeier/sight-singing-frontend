@@ -25,7 +25,7 @@ const SignUp = ({signup, history}) => {
   return (
     <div className='signup-page'>
       <div className='section-1-signup'>
-        <h1>Sign in to your account</h1>
+        <h1 className='account-title'>Create an account here!</h1>
       </div>
       <div className='section-2-signup'>
         <form onSubmit={(event) => onSubmit(event)} className="signup-form">
@@ -67,7 +67,7 @@ const SignUp = ({signup, history}) => {
         </form>
       </div>
       <div className='section-3-signup'>
-        <h6>Already have an account? <Link to='/login'>Login</Link></h6>
+        <h6 className='switch-account'>Already have an account? <Link to='/login'>Login</Link></h6>
       </div>
     </div>
   );

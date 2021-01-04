@@ -1,14 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logout} from '../actions/action.auth'
+import Login from './Login'
 
 const Header = ({logout, isAuthenticated}) => {
   return (
     <header className='nav-bar'>
       <h1 className='header-title'>TheoryHelper</h1>
       <nav>
-        <Link to='/SightSinging'>Sight Singing</Link>
+        { isAuthenticated 
+          ? <Redirect to='/SightSinging'/> 
+          
+          : <Link to='/'>Sight Singing</Link>
+        }
         <Link to='/'>Home</Link>
         {/* <Link to='/login'>Login</Link> */}
         {/* <Link to='/signup'>Sign Up</Link> */}

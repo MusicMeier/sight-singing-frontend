@@ -20,6 +20,8 @@ function Tuner({noteObject, nextButton}) {
   const [shouldDisplaySecondSuccess, setShouldDisplaySecondSuccess] = useState(false)
   const [shouldDisplaySecondPitch, setShouldDisplaySecondPitch] = useState(false)
 
+  // const [noteCount, setNoteCount] = useState(0)
+
   const handlePlay = () => {
     oscillator.start();
     setTimeout(() => {
@@ -29,7 +31,6 @@ function Tuner({noteObject, nextButton}) {
       setInterval(getPitch, 500) // This won't work
     }, 500)
   }
-  
   
   const getPitch = () => {
     pitch.getPitch((err, frequency) => {
@@ -56,11 +57,17 @@ function Tuner({noteObject, nextButton}) {
     })
   }
 
-  useEffect(() => {
-  
-    
-  }, [nextButton]);
+  // useEffect(() => {
 
+  //   setShouldDisplayPlay(true)
+  //   setShouldDisplaySuccess(false)
+  //   setShouldDisplaySecondSuccess(false)
+  //   console.log('the count is:', count)
+  //   setCount(count + 1)
+  //   getPitch()
+
+  // }, [nextButton]);
+  
   useEffect(() => {
     new p5(instance => {
       instance.setup = () => {
@@ -77,13 +84,13 @@ function Tuner({noteObject, nextButton}) {
   }, [])
 
   return (
-    <div className="Tuner">
-      <h1>Can you sing a {noteObject.interval} interval?</h1>
+    <div className="Tuner ">
+      <h1 className='interval-text'>Can you sing a {noteObject.interval} interval?</h1>
       { shouldDisplayPitch ? <div className="pitch">{pitchText}</div> : "" }
-      { shouldDisplaySuccess ? <p className="success">You sang a {noteObject.noteNames[0]} note!</p> : "" }
+      { shouldDisplaySuccess ? <p className="success">You sang: {noteObject.noteNames[0]}!</p> : "" }
 
       { shouldDisplaySecondPitch ? <div className="second-pitch">{secondPitchText}</div> : "" }
-      { shouldDisplaySecondSuccess ? <p className="second-success">You sang a {noteObject.noteNames[1]} note!</p> : "" }
+      { shouldDisplaySecondSuccess ? <p className="second-success">You sang: {noteObject.noteNames[1]}!</p> : "" }
 
       { shouldDisplayPlay ? <button className="play" onClick={handlePlay}>Play Tone</button> : "" }
     </div>
@@ -107,15 +114,19 @@ function createOscillator(frequency) {
 }
 
 function pitchIsCorrect(frequency, noteObject){
-  const lowerBoundaryTuner = noteObject.lowerBoundary[0]// Boundary of current note
-  const upperBoundaryTuner = noteObject.upperBoundary[0]// Boundary of current note
+  const lowerBoundaryTuner = noteObject.lowerBoundary[0]// Boundary of first note
+  const upperBoundaryTuner = noteObject.upperBoundary[0]// Boundary of first note
   
   return frequency > lowerBoundaryTuner && frequency < upperBoundaryTuner
 }
 
 function secondPitchIsCorrect(frequency, noteObject){
-  const secondLowerBoundaryTuner = noteObject.lowerBoundary[1]// Boundary of current note
-  const secondUpperBoundaryTuner = noteObject.upperBoundary[1]// Boundary of current note
+  const secondLowerBoundaryTuner = noteObject.lowerBoundary[1]// Boundary of second note
+  const secondUpperBoundaryTuner = noteObject.upperBoundary[1]// Boundary of second note
   
   return frequency > secondLowerBoundaryTuner && frequency < secondUpperBoundaryTuner
 }
+
+// function refreshPage(){
+//   return window.location.reload(false)
+// }

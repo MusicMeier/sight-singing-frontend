@@ -26,7 +26,7 @@ const Login = ({ login, check_authenticated }) => {
     <>
       <div className='login-page'>
         <div className='form-section-1'>
-          <h1>Sign in to your account</h1>
+          <h1 className='account-title'>Sign in to your account below:</h1>
         </div>
         <div className='form-section-2'>
           <form onSubmit={(event) => onSubmit(event)} className='login-form'>
@@ -47,7 +47,7 @@ const Login = ({ login, check_authenticated }) => {
           </form>
         </div>
         <div className='form-section-3'>
-          <h6>Don't have an account <Link to='/signup'>Create Account</Link></h6>
+          <h6 className='switch-account'>Don't have an account <Link to='/signup'>Create Account</Link></h6>
         </div>
       </div>
     </>

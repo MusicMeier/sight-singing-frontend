@@ -95,6 +95,18 @@ header a {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
 }
 
+.switch-account {
+  font-size: 17px;
+  font-weight: 700;
+  color: rgb(92, 89, 89);
+}
+
+.account-title {
+  font-size: 25px;
+  font-weight: 700;
+  color: rgb(92, 89, 89);
+}
+
 .signup-form {
   display: flex;
   flex-direction: column;
@@ -177,7 +189,8 @@ header a {
   display: flex;
   flex-direction: column;
   margin: auto;
-  width: 400px;
+  width: 80%;
+
 }
 
 .login-button {
@@ -219,7 +232,24 @@ input {
   display: flex;
   justify-content: center;
   height: 50%;
+  /* width: 75%;  */
   align-items: center;
+}
+
+.mainpage-title {
+  margin-top: 10px;
+  width: 60%;
+  border: 2px double rgb(92, 89, 89, 0.788);
+  border-radius: 6px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  text-shadow: white;
+  font-weight: bold;
 }
 
 .home-sight-singing {
@@ -257,6 +287,8 @@ input {
   background-color: #AAAAFF;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  /* padding-bottom: 10px;
+  padding-top: 10px; */
 }
 
 .sight-singing-title {
@@ -269,6 +301,7 @@ input {
   font-weight: bold;
   padding-top: 15px;
   color: rgba(92, 89, 89, 0.897);
+  text-shadow: 2px 2px 8px white;
 }
 
 
@@ -276,16 +309,20 @@ input {
   height: 75%;
   width: auto;
   border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+
 }
 
 .buttons-container {
-  height: 70%;
+  height: 60%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .sight-singing-button {
@@ -322,6 +359,15 @@ input {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   background-color: white;
+  font-weight: bold;
+  color: rgb(92, 89, 89);
+}
+
+.interval-text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 17px;
+  font-weight: 600;
 }
 
 .interval-card img {
@@ -364,6 +410,11 @@ input {
   width: 250px;
 }
 
+.the-hint {
+  font-size: large;
+  font-weight: 600;
+  color: rgb(92, 89, 89);
+}
 
 .play {
   width: 50%;
@@ -405,6 +456,7 @@ footer {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 15px;
+  color: rgb(92, 89, 89);
 }
 
 /* .tuner {

@@ -30,7 +30,7 @@ const FifthIntervals = ({intervalNotes}) => {
     <div className='hint-container'>
       <button className='hint-button' onClick={toggleHint}>{showHint ? "Hide Hint" : "Show Hint"}</button>
       {
-        showHint ? <p>🎶Star Wars theme song🎶</p> : ""
+        showHint ? <p className='the-hint'>🎶Star Wars theme song🎶</p> : ""
       }
     </div>
       <div className='interval-card-container'>

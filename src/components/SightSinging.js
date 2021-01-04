@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-const SightSinging = () => {
+const SightSinging = ({isAuthenticated}) => {
 
   return (
-    <>
+    <> 
       <div className='sight-singing-container'>
         <div className='sight-singing-title'>
           <p>Choose an Interval!</p>

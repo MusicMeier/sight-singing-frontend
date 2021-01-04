@@ -30,7 +30,7 @@ const ThirdIntervals = ({intervalNotes}) => {
     <div className='hint-container'>
       <button className='hint-button' onClick={toggleHint}>{showHint ? "Hide Hint" : "Show Hint"}</button>
       {
-        showHint ? <p>🎶When the Saints Go Marching in🎶</p> : ""
+        showHint ? <p className='the-hint'>🎶When the Saints Go Marching in🎶</p> : ""
       }
     </div>
       <div className='interval-card-container'>

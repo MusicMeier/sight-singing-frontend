@@ -32,8 +32,8 @@ const SeventhIntervals = ({intervalNotes}) => {
       {
         showHint 
           ? <div className='the-hint'>
-              <p>"Don't Know Why -Norah Jones" </p>
-              <p>🎶I've waited 'till🎶</p>
+              <p className='the-hint'>"Don't Know Why -Norah Jones" </p>
+              <p className='the-hint'>🎶I've waited 'till🎶</p>
             </div> 
           : ""
       }
