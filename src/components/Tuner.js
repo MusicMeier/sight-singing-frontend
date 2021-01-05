@@ -1,11 +1,9 @@
 /* eslint no-undef: 0 */
 
 import { useState, useEffect } from "react"
-// import SecondIntervals from './SecondIntervals'
 
 function Tuner({noteObject, nextButton}) {
 
-  // console.log(noteObject)
   const model = 'https://cdn.jsdelivr.net/gh/ml5js/ml5-data-and-models/models/pitch-detection/crepe/';
   const oscillator = createOscillator(noteObject.frequency[0])
 
@@ -20,9 +18,6 @@ function Tuner({noteObject, nextButton}) {
   const [shouldDisplayPlay, setShouldDisplayPlay] = useState(false)
   const [shouldDisplaySecondSuccess, setShouldDisplaySecondSuccess] = useState(false)
   const [shouldDisplaySecondPitch, setShouldDisplaySecondPitch] = useState(false)
-  // const [count, setCount] = useState(0)
-
-  // const [noteCount, setNoteCount] = useState(0)
 
   const handlePlay = () => {
     oscillator.start();
@@ -69,23 +64,11 @@ function Tuner({noteObject, nextButton}) {
     setShouldDisplaySuccess(false)
     setPitchText("")
     setSecondPitchText("")
-    // console.log('the count is:', noteCount)
-    // setNoteCount(noteCount + 1)
     setShouldDisplaySecondPitch(false)
     setShouldDisplaySecondSuccess(false)
-    // setPitch({
-    //   getPitch: () => {},
-    // })
-
+  
   }, [nextButton]);
 
-  // function willThisHelpRemount() {
-  //   if (shouldDisplaySuccess === true  && shouldDisplaySecondSuccess === true) {
-  //     setNoteCount(noteCount + 1)
-  //     console.log(noteCount)
-  //   }
-  // }
-  
   useEffect(() => {
     console.log('tuner thing again')
     let mic;
@@ -110,10 +93,6 @@ function Tuner({noteObject, nextButton}) {
     }
   }, [nextButton])
 
-  // function secondClick(){
-  //   setCount(count + 1)
-  // }
-
   return (
     <div className="Tuner ">
       <h1 className='interval-text'>Can you sing a {noteObject.interval} interval?</h1>
@@ -124,8 +103,6 @@ function Tuner({noteObject, nextButton}) {
       { shouldDisplaySecondSuccess ? <p className="second-success">You sang: {noteObject.noteNames[1]}!</p> : "" }
 
       { shouldDisplayPlay ? <button className="play" onClick={handlePlay}>Play Tone</button> : "" }
-      {/* <button onClick={secondClick}>Other Next Button</button>
-      <SecondIntervals index={count}/> */}
     </div>
   );
 }
@@ -160,6 +137,3 @@ function secondPitchIsCorrect(frequency, noteObject){
   return frequency > secondLowerBoundaryTuner && frequency < secondUpperBoundaryTuner
 }
 
-// function refreshPage(){
-//   return window.location.reload(false)
-// }
