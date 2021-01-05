@@ -246,9 +246,15 @@ input {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
 }
 
+.hear-phrase {
+  text-decoration: underline;
+}
+
 hr {
   margin: 20px 0;
   border: 1px solid  rgba(0, 0, 0, 0.5);
+  width: 80%;
+  margin: auto;
 }
 
 .home-ear-training {
@@ -270,7 +276,9 @@ hr {
   padding-left: 10px;
   padding-right: 10px;
   font-size: 54px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  /* text-align: center; */
   color: white;
   text-shadow: white;
   font-weight: bold;
@@ -369,23 +377,31 @@ hr {
 }
 
 .card-title {
-  font-size: 20px;
-  padding: 15px 0px;
+  font-size: 18px;
+  height: 10%;
+  padding-left: 15px;
+  padding-top: 20px;
+  justify-content: center;
 }
 
 .interval-card {
   padding: 10px 15px 10px 15px;
   margin: 10px 15px 10px 15px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  height: 300px;
-  width: 250px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-  border-radius: 8px;
-  background-color: white;
+  align-items: center;
+  height: 350px;
+  width: 300px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5); */
+  /* border-radius: 8px; */
+  /* background-color: white; */
+  background-image: url('https://i.imgur.com/Gt2v78N.png');
+  background-repeat: no-repeat;
   font-weight: bold;
   color: rgb(92, 89, 89);
+  background-size: cover;
+  background-position: center;
 }
 
 .interval-text {
@@ -397,15 +413,18 @@ hr {
 
 .interval-card img {
   text-align: center;
-  width: 80%;
-  height: 80%;
+  width: 60%;
+  /* height: 60%; */
   padding-bottom: 15px;
+  padding-left: 10px;
+  background-size: contain;
 }
 
 .interval-card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding-top: 40px;
 }
 
 .hint-button {
@@ -419,6 +438,7 @@ hr {
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
   margin-bottom: 15px;
+  align-self: center;
 }
 
 .hint-container {
@@ -428,10 +448,13 @@ hr {
   justify-content: center;
   text-align: center;
   padding-right: 20px; */
+  display: flex;
+  flex-direction: column;
   position: absolute;
+  justify-content: center;
+  text-align: center;
   top: 13%;
   right: 2%;
-  text-align: center;
   width: 250px;
 }
 
@@ -446,12 +469,12 @@ hr {
   border-radius: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: rgba(92, 89, 89, 0.658);
+  /* background-color: rgba(92, 89, 89, 0.658); */
+  background-color: #aaaaffaf;
   color: white;
   font-weight: bold;
   border: none;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-  /* margin-top: 10px; */
+  box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.5);
 }
 
 .button-container-intervals {
@@ -459,6 +482,7 @@ hr {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: -5px;
 }
 
 footer {
@@ -485,17 +509,33 @@ footer {
   color: rgb(92, 89, 89);
 }
 
-.display-play-image img{
+.Tuner img{
+  margin-top: -15px;
   width: 40%;
   padding-bottom: 0 !important;
   margin-bottom: 5px !important;
+  padding-left: 15px;
 }
 
 .Tuner {
-  /* display: flex;
-  flex-direction: column;
-  align-content: center; */
+  display: flex;
+  padding-left: 15px;
+  /* flex-direction: column; */
+  align-content: center;
   width: 250px;
+}
+
+.pitch-sentences-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.pitch-sentences {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2px;
 }
 
 .success-container {
@@ -510,9 +550,11 @@ footer {
 
 .success {
   font-size: 16px;
+  padding-right: 4px;
 }
 .second-success {
   font-size: 16px;
+  padding-right: 4px;
 }
 
 .correct-note {
@@ -521,10 +563,16 @@ footer {
   font-weight: 700;
   font-size: 18px;
 }
+.button-container-intervals-1 {
+  position: absolute;
+  width: 250px;
+  text-align: center;
+  top: 15%;
+  right: 2%;
+}
 
 .screen-button {
-  margin-top: 15px;
-  width: 100px; 
+  width: 50%; 
   border-radius: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -533,6 +581,8 @@ footer {
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
   background-color: #aaaaffaf;
+  align-self: center;
+  margin-bottom: 10px;
 }
 
 .footer-button-link {

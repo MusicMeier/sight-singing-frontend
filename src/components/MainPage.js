@@ -6,7 +6,7 @@ const MainPage = () => {
   return (
     <div className='home-container'>
       <div className='home-ear-training'>
-        <h1 className='mainpage-title'>Are you ready<br></br> <strong>to hear</strong> <br></br>what you see?</h1>
+        <h1 className='mainpage-title'>Are you ready<br></br> <strong>to <span className="hear-phrase">hear</span></strong> <br></br>what you see?</h1>
       </div>
       <hr></hr>
       <div className='home-sight-singing'>

@@ -58,6 +58,7 @@ const SecondIntervals = ({intervalNotes}) => {
   return (
   <div>
     <div className='hint-container'>
+      <button onClick={handleClick} className='screen-button'>Next</button>
       <button className='hint-button' onClick={toggleHint}>{showHint ? "Hide Hint" : "Show Hint"}</button>
       {
         showHint ? <p className='the-hint'>🎶Do-Re-Mi🎶</p> : ""
@@ -67,13 +68,10 @@ const SecondIntervals = ({intervalNotes}) => {
           {eachNoteObject} 
       </div>
       <div className='button-container-intervals'>
-        <div>
-          <button onClick={handleClick} className='screen-button'>Next</button>
-        </div>
         <div className='tuner-container'>
           <Tuner pitch={pitch} currentIndex={index} noteObject={intervalNotes[index]}/>
         </div>
-      </div>
+        </div>
       <footer >
         <Link to='/ThirdIntervals' className='footer-button-link'>
           <button className='footer-button'>Third</button>

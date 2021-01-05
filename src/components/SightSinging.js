@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
+import Login from './Login'
 
 const SightSinging = ({isAuthenticated}) => {
 

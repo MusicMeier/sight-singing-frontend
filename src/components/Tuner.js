@@ -43,7 +43,7 @@ function Tuner({noteObject, currentIndex, pitch}) {
         setShouldDisplaySuccess(true)
         setShouldDisplaySecondPitch(true)
       } 
-      if (frequency) {
+      if (frequency && shouldDisplaySuccess) {
         setSecondPitchText(frequency)
       } else {
         setSecondPitchText("No Pitch detected")
@@ -72,12 +72,23 @@ function Tuner({noteObject, currentIndex, pitch}) {
   return (
     <div className="Tuner ">
       {/* <h1 className='interval-text'>Can you sing a {noteObject.interval} interval?</h1> */}
-      { shouldDisplayPlay ? <button className="play" onClick={handlePlay}>Play Tone</button> : <div className='display-play-image'><img src={'https://lh3.googleusercontent.com/proxy/SAyVWZ79sYPl5NT4Z4hiYkyGhDVgtsSGPVPsIUKqTGxUhiTA3LXGzyv1E6lngq17OzIVpq5IBOJoa6eIRpIswhsT6f3aOEGOFpayFxCxKssE4VveIvOpbMwKuFzWLkDPSA'} /></div>}
-      { shouldDisplayPitch ? <div className="pitch">{pitchText}</div> : "" }
-      { shouldDisplaySuccess ? <div className='success-container'><p className="success">You sang: </p><p> </p><p className='correct-note'> {noteObject.noteNames[0]}!</p></div> : "" }
+      { shouldDisplayPlay 
+        ? <button className="play" onClick={handlePlay}>Play Tone</button> 
+        : 
+          <img 
+            src={'https://lh3.googleusercontent.com/proxy/SAyVWZ79sYPl5NT4Z4hiYkyGhDVgtsSGPVPsIUKqTGxUhiTA3LXGzyv1E6lngq17OzIVpq5IBOJoa6eIRpIswhsT6f3aOEGOFpayFxCxKssE4VveIvOpbMwKuFzWLkDPSA'} />
+          }
+      <div className='pitch-sentences-container'>
+        <div className='pitch-sentences'>
+          { shouldDisplayPitch ? <div className="pitch">{pitchText}</div> : "" }
+          { shouldDisplaySuccess ? <div className='success-container'><p className="success">You sang: </p><p> </p><p className='correct-note'> {noteObject.noteNames[0]}!</p></div> : "" }
+          </div>
 
-      { shouldDisplaySecondPitch ? <div className="second-pitch">{secondPitchText}</div> : "" }
-      { shouldDisplaySecondSuccess ? <div className='success-container-1'><p className="second-success">You sang: </p><p className='correct-note'> {noteObject.noteNames[1]}!</p></div> : "" }
+        <div className='pitch-sentences'>
+          { shouldDisplaySecondPitch ? <div className="second-pitch">{secondPitchText}</div> : "" }
+          { shouldDisplaySecondSuccess ? <div className='success-container-1'><p className="second-success">You sang: </p><p className='correct-note'> {noteObject.noteNames[1]}!</p></div> : "" }
+        </div>
+      </div>
 
     </div>
   );
