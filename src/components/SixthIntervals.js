@@ -1,11 +1,41 @@
-import React, { useState } from 'react';
+/* eslint no-undef: 0 */
+
+import React, { useState, useEffect } from 'react';
 import utilities from './Utilities'
 import { Link } from 'react-router-dom'
 import Tuner from './Tuner'
 
 const SixthIntervals = ({intervalNotes}) => {
+  const model = 'https://cdn.jsdelivr.net/gh/ml5js/ml5-data-and-models/models/pitch-detection/crepe/';
   const [showHint, setShowHint] = useState(false)
   const [index, setIndex] = useState(0)
+  const [pitch, setPitch] = useState({
+    getPitch: () => {},
+  })
+
+  useEffect(() => {
+    console.log('tuner thing again')
+    let mic;
+
+    new p5(instance => {
+      instance.setup = () => {
+        instance.noCanvas();
+        const audioContext = instance.getAudioContext();
+        mic = new p5.AudioIn();
+        mic.start(() => {
+          setPitch(
+            ml5.pitchDetection(model, audioContext , mic.stream, () => {})
+          )
+        });
+      }
+    })
+    
+    return () => {
+      // this is called when the component is unmounted
+      // this is where you do the cleanup
+      mic.stop() // whatever the right code to stop the mic is
+    }
+  }, [])
 
   const increment = () => {
     if(index < intervalNotes.length -1 ){
@@ -37,11 +67,11 @@ const SixthIntervals = ({intervalNotes}) => {
         {eachNoteObject}
       </div>
       <div className='button-container-intervals'>
-        <div className='tuner-container'>
-          <Tuner noteObject={intervalNotes[index]}/>
-        </div>
         <div>
           <button onClick={handleClick} className='screen-button'>Next</button>
+        </div>
+        <div className='tuner-container'>
+          <Tuner pitch={pitch} currentIndex={index} noteObject={intervalNotes[index]}/>
         </div>
       </div>
         <footer >

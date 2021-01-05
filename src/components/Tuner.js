@@ -2,14 +2,10 @@
 
 import { useState, useEffect } from "react"
 
-function Tuner({noteObject, nextButton}) {
+function Tuner({noteObject, currentIndex, pitch}) {
 
-  const model = 'https://cdn.jsdelivr.net/gh/ml5js/ml5-data-and-models/models/pitch-detection/crepe/';
   const oscillator = createOscillator(noteObject.frequency[0])
 
-  const [pitch, setPitch] = useState({
-    getPitch: () => {},
-  })
   const [pitchText, setPitchText] = useState("")
   const [secondPitchText, setSecondPitchText] = useState("")
 
@@ -18,24 +14,28 @@ function Tuner({noteObject, nextButton}) {
   const [shouldDisplayPlay, setShouldDisplayPlay] = useState(false)
   const [shouldDisplaySecondSuccess, setShouldDisplaySecondSuccess] = useState(false)
   const [shouldDisplaySecondPitch, setShouldDisplaySecondPitch] = useState(false)
+  const [timeOutId, setTimeOutId] = useState(0)
+  const [intervalId, setIntervalId] = useState(0)
 
   const handlePlay = () => {
     oscillator.start();
-    setTimeout(() => {
+    let timeOut = setTimeout(() => {
       oscillator.stop()
       setShouldDisplayPlay(false)
       setShouldDisplayPitch(true)
-      setInterval(getPitch, 500) // This won't work
+      let interval = setInterval(getPitch, 500) // This won't work
+      setIntervalId(interval)
     }, 500)
+    setTimeOutId(timeOut)
   }
   
   const getPitch = () => {
     
     pitch.getPitch((err, frequency) => {
-      if (frequency) {
+      if (frequency && (!shouldDisplaySuccess && !shouldDisplaySecondSuccess)) {
         setPitchText(frequency)
       } else {
-        setPitchText("No pitch detected")
+        setPitchText("Sing First Pitch")
       }
       
       if (frequency && pitchIsCorrect(frequency, noteObject)){
@@ -44,7 +44,6 @@ function Tuner({noteObject, nextButton}) {
         setShouldDisplaySecondPitch(true)
       } 
       if (frequency) {
-        console.log(shouldDisplaySuccess)
         setSecondPitchText(frequency)
       } else {
         setSecondPitchText("No Pitch detected")
@@ -52,7 +51,6 @@ function Tuner({noteObject, nextButton}) {
       if(frequency && secondPitchIsCorrect(frequency, noteObject)){
         setShouldDisplaySecondPitch(false)
         setShouldDisplaySecondSuccess(true)
-        // willThisHelpRemount()
       }
     })
   }
@@ -66,43 +64,21 @@ function Tuner({noteObject, nextButton}) {
     setSecondPitchText("")
     setShouldDisplaySecondPitch(false)
     setShouldDisplaySecondSuccess(false)
+    clearInterval(intervalId)
+    clearTimeout(timeOutId)
   
-  }, [nextButton]);
-
-  useEffect(() => {
-    console.log('tuner thing again')
-    let mic;
-
-    new p5(instance => {
-      instance.setup = () => {
-        instance.noCanvas();
-        const audioContext = instance.getAudioContext();
-        mic = new p5.AudioIn();
-        mic.start(() => {
-          setPitch(
-            ml5.pitchDetection(model, audioContext , mic.stream, () => setShouldDisplayPlay(true))
-          )
-        });
-      }
-    })
-    
-    return () => {
-      // this is called when the component is unmounted
-      // this is where you do the cleanup
-      mic.stop() // whatever the right code to stop the mic is
-    }
-  }, [nextButton])
+  }, [currentIndex]);
 
   return (
     <div className="Tuner ">
-      <h1 className='interval-text'>Can you sing a {noteObject.interval} interval?</h1>
+      {/* <h1 className='interval-text'>Can you sing a {noteObject.interval} interval?</h1> */}
+      { shouldDisplayPlay ? <button className="play" onClick={handlePlay}>Play Tone</button> : <div className='display-play-image'><img src={'https://lh3.googleusercontent.com/proxy/SAyVWZ79sYPl5NT4Z4hiYkyGhDVgtsSGPVPsIUKqTGxUhiTA3LXGzyv1E6lngq17OzIVpq5IBOJoa6eIRpIswhsT6f3aOEGOFpayFxCxKssE4VveIvOpbMwKuFzWLkDPSA'} /></div>}
       { shouldDisplayPitch ? <div className="pitch">{pitchText}</div> : "" }
-      { shouldDisplaySuccess ? <p className="success">You sang: {noteObject.noteNames[0]}!</p> : "" }
+      { shouldDisplaySuccess ? <div className='success-container'><p className="success">You sang: </p><p> </p><p className='correct-note'> {noteObject.noteNames[0]}!</p></div> : "" }
 
       { shouldDisplaySecondPitch ? <div className="second-pitch">{secondPitchText}</div> : "" }
-      { shouldDisplaySecondSuccess ? <p className="second-success">You sang: {noteObject.noteNames[1]}!</p> : "" }
+      { shouldDisplaySecondSuccess ? <div className='success-container-1'><p className="second-success">You sang: </p><p className='correct-note'> {noteObject.noteNames[1]}!</p></div> : "" }
 
-      { shouldDisplayPlay ? <button className="play" onClick={handlePlay}>Play Tone</button> : "" }
     </div>
   );
 }
@@ -136,4 +112,3 @@ function secondPitchIsCorrect(frequency, noteObject){
   
   return frequency > secondLowerBoundaryTuner && frequency < secondUpperBoundaryTuner
 }
-

@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arizonia&display=swap');
+/* font-family: 'Arizonia', cursive; */
+
+@import url('https://fonts.googleapis.com/css2?family=Tangerine&display=swap');
+/* font-family: 'Tangerine', cursive; */
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -63,16 +68,19 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 15px 25px 15px;
+  padding: 10px 15px 10px 15px;
   background-color: rgba(92, 89, 89, 0.671);
   margin-bottom: 30px;
 }
 
 .header-title {
-  font-size: 30px;
+  /* font-family: 'Arizonia', cursive; */
+  font-family: 'Tangerine', cursive;
+  font-size: 50px;
   font-weight: bold;
   color: #AAAAFF;
   text-shadow: 2px 2px 8px #181616d8;
+  padding: 0 !important;
 }
 
 header a {
@@ -103,7 +111,7 @@ header a {
 }
 
 .account-title {
-  font-size: 25px;
+  font-size: 40px;
   font-weight: 700;
   color: rgb(92, 89, 89);
 }
@@ -118,6 +126,7 @@ header a {
 }
 
 .section-1-signup {
+  font-family: 'Arizonia', cursive;
   padding-top: 60px;
   /* position: relative;
   margin: auto; */
@@ -162,12 +171,13 @@ header a {
   width: 450px;
   height: 600px;
   margin: auto;
-  background-color: #AAAAFF;
+  background-color: #aaaaff9a;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
 }
 
 .form-section-1 {
+  font-family: 'Arizonia', cursive;
   padding-top: 60px;
   /* position: relative;
   margin: auto; */
@@ -215,12 +225,12 @@ input {
   margin-top: 15px;
   margin-bottom: 0;
   border: none;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
   padding-left: 6px;
-  font-size: 17px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 500;
   color: rgb(92, 89, 89);
 }
 
@@ -231,9 +241,14 @@ input {
   width: 450px;
   height: 600px;
   margin: auto;
-  background-color: #AAAAFF;
+  background-color: #aaaaff8a;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+hr {
+  margin: 20px 0;
+  border: 1px solid  rgba(0, 0, 0, 0.5);
 }
 
 .home-ear-training {
@@ -245,15 +260,16 @@ input {
 }
 
 .mainpage-title {
+  font-family: 'Tangerine', cursive;
   margin-top: 10px;
   width: 60%;
-  border: 2px double rgb(92, 89, 89, 0.788);
-  border-radius: 6px;
+  /* border: 2px double rgb(92, 89, 89, 0.788); */
+  /* border: 2px double white; */
   padding-top: 40px;
   padding-bottom: 40px;
   padding-left: 10px;
   padding-right: 10px;
-  font-size: 30px;
+  font-size: 54px;
   text-align: center;
   color: white;
   text-shadow: white;
@@ -292,7 +308,7 @@ input {
   width: 450px;
   height: 600px;
   margin: auto;
-  background-color: #AAAAFF;
+  background-color: #aaaaff8f;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
   /* padding-bottom: 10px;
@@ -300,12 +316,13 @@ input {
 }
 
 .sight-singing-title {
+  font-family: 'Tangerine', cursive;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 30%;
   align-items: center;
-  font-size: 20px;
+  font-size: 35px;
   font-weight: bold;
   padding-top: 15px;
   color: rgba(92, 89, 89, 0.897);
@@ -386,7 +403,6 @@ input {
 }
 
 .interval-card-container {
-  padding-top: 35px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -426,7 +442,7 @@ input {
 }
 
 .play {
-  width: 50%;
+  width: 40%;
   border-radius: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -435,7 +451,7 @@ input {
   font-weight: bold;
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 .button-container-intervals {
@@ -460,6 +476,7 @@ footer {
 }
 
 .tuner-container {
+  /* width: 100px; */
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -468,13 +485,45 @@ footer {
   color: rgb(92, 89, 89);
 }
 
-/* .tuner {
-  display: flex;
+.display-play-image img{
+  width: 40%;
+  padding-bottom: 0 !important;
+  margin-bottom: 5px !important;
+}
+
+.Tuner {
+  /* display: flex;
   flex-direction: column;
-  align-content: center;
-} */
+  align-content: center; */
+  width: 250px;
+}
+
+.success-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+.success-container-1 {
+  display: flex;
+  justify-content: center;
+}
+
+.success {
+  font-size: 16px;
+}
+.second-success {
+  font-size: 16px;
+}
+
+.correct-note {
+  /* font-family: 'Tangerine', cursive; */
+  font-family: 'Arizonia', cursive;
+  font-weight: 700;
+  font-size: 18px;
+}
 
 .screen-button {
+  margin-top: 15px;
   width: 100px; 
   border-radius: 8px;
   padding-top: 10px;
@@ -483,7 +532,7 @@ footer {
   font-weight: bold;
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-  background-color: #aaaaffd3;
+  background-color: #aaaaffaf;
 }
 
 .footer-button-link {

@@ -7,7 +7,7 @@ import Login from './Login'
 const Header = ({logout, isAuthenticated}) => {
   return (
     <header className='nav-bar'>
-      <h1 className='header-title'>TheoryHelper</h1>
+      <h1 className='header-title'>KeyIntervals</h1>
       <nav>
         { isAuthenticated 
           ? <Redirect to='/SightSinging'/> 
