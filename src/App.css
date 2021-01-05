@@ -53,7 +53,8 @@ table {
 
 /* background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png"); */
 
-background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
+/* background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png"); */
+background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
 
   height: 100vh;
 }
@@ -127,10 +128,11 @@ header a {
 }
 
 .section-2-signup {
-  padding-top: 20px;
   height: 80%;
   text-align: center;
   vertical-align: middle;
+  padding-bottom: 30px;
+
 }
 
 .section-3-signup {
@@ -149,7 +151,8 @@ header a {
   font-weight: bold;
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-  margin-top: 10px;
+  margin-top: 25px;
+  margin-bottom: 15px;
 }
 
 .login-page {
@@ -178,6 +181,7 @@ header a {
   height: 80%;
   text-align: center;
   vertical-align: middle;
+
 }
 .form-section-3 {
   display: flex;
@@ -188,9 +192,9 @@ header a {
 .login-form {
   display: flex;
   flex-direction: column;
+  text-align: center;
   margin: auto;
   width: 80%;
-
 }
 
 .login-button {
@@ -203,17 +207,21 @@ header a {
   font-weight: bold;
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
 input {
-  border-radius: 4px;
+  border-radius: 8px;
   margin-top: 15px;
   margin-bottom: 0;
   border: none;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  padding-left: 6px;
+  font-size: 17px;
+  font-weight: 600;
+  color: rgb(92, 89, 89);
 }
 
 .home-container {
@@ -373,11 +381,12 @@ input {
 .interval-card img {
   text-align: center;
   width: 80%;
-  height: auto;
+  height: 80%;
   padding-bottom: 15px;
 }
 
 .interval-card-container {
+  padding-top: 35px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -404,7 +413,7 @@ input {
   text-align: center;
   padding-right: 20px; */
   position: absolute;
-  top: 15%;
+  top: 13%;
   right: 2%;
   text-align: center;
   width: 250px;

@@ -1,12 +1,13 @@
 /* eslint no-undef: 0 */
 
 import { useState, useEffect } from "react"
+// import SecondIntervals from './SecondIntervals'
 
 function Tuner({noteObject, nextButton}) {
 
+  // console.log(noteObject)
   const model = 'https://cdn.jsdelivr.net/gh/ml5js/ml5-data-and-models/models/pitch-detection/crepe/';
   const oscillator = createOscillator(noteObject.frequency[0])
-  console.log(noteObject.frequency[0])
 
   const [pitch, setPitch] = useState({
     getPitch: () => {},
@@ -19,6 +20,7 @@ function Tuner({noteObject, nextButton}) {
   const [shouldDisplayPlay, setShouldDisplayPlay] = useState(false)
   const [shouldDisplaySecondSuccess, setShouldDisplaySecondSuccess] = useState(false)
   const [shouldDisplaySecondPitch, setShouldDisplaySecondPitch] = useState(false)
+  // const [count, setCount] = useState(0)
 
   // const [noteCount, setNoteCount] = useState(0)
 
@@ -33,6 +35,7 @@ function Tuner({noteObject, nextButton}) {
   }
   
   const getPitch = () => {
+    
     pitch.getPitch((err, frequency) => {
       if (frequency) {
         setPitchText(frequency)
@@ -46,6 +49,7 @@ function Tuner({noteObject, nextButton}) {
         setShouldDisplaySecondPitch(true)
       } 
       if (frequency) {
+        console.log(shouldDisplaySuccess)
         setSecondPitchText(frequency)
       } else {
         setSecondPitchText("No Pitch detected")
@@ -53,27 +57,44 @@ function Tuner({noteObject, nextButton}) {
       if(frequency && secondPitchIsCorrect(frequency, noteObject)){
         setShouldDisplaySecondPitch(false)
         setShouldDisplaySecondSuccess(true)
+        // willThisHelpRemount()
       }
     })
   }
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   setShouldDisplayPlay(true)
-  //   setShouldDisplaySuccess(false)
-  //   setShouldDisplaySecondSuccess(false)
-  //   console.log('the count is:', count)
-  //   setCount(count + 1)
-  //   getPitch()
+    setShouldDisplayPlay(true)
+    setShouldDisplayPitch(false)
+    setShouldDisplaySuccess(false)
+    setPitchText("")
+    setSecondPitchText("")
+    // console.log('the count is:', noteCount)
+    // setNoteCount(noteCount + 1)
+    setShouldDisplaySecondPitch(false)
+    setShouldDisplaySecondSuccess(false)
+    // setPitch({
+    //   getPitch: () => {},
+    // })
 
-  // }, [nextButton]);
+  }, [nextButton]);
+
+  // function willThisHelpRemount() {
+  //   if (shouldDisplaySuccess === true  && shouldDisplaySecondSuccess === true) {
+  //     setNoteCount(noteCount + 1)
+  //     console.log(noteCount)
+  //   }
+  // }
   
   useEffect(() => {
+    console.log('tuner thing again')
+    let mic;
+
     new p5(instance => {
       instance.setup = () => {
         instance.noCanvas();
         const audioContext = instance.getAudioContext();
-        const mic = new p5.AudioIn();
+        mic = new p5.AudioIn();
         mic.start(() => {
           setPitch(
             ml5.pitchDetection(model, audioContext , mic.stream, () => setShouldDisplayPlay(true))
@@ -81,7 +102,17 @@ function Tuner({noteObject, nextButton}) {
         });
       }
     })
-  }, [])
+    
+    return () => {
+      // this is called when the component is unmounted
+      // this is where you do the cleanup
+      mic.stop() // whatever the right code to stop the mic is
+    }
+  }, [nextButton])
+
+  // function secondClick(){
+  //   setCount(count + 1)
+  // }
 
   return (
     <div className="Tuner ">
@@ -93,6 +124,8 @@ function Tuner({noteObject, nextButton}) {
       { shouldDisplaySecondSuccess ? <p className="second-success">You sang: {noteObject.noteNames[1]}!</p> : "" }
 
       { shouldDisplayPlay ? <button className="play" onClick={handlePlay}>Play Tone</button> : "" }
+      {/* <button onClick={secondClick}>Other Next Button</button>
+      <SecondIntervals index={count}/> */}
     </div>
   );
 }
@@ -109,7 +142,7 @@ function createOscillator(frequency) {
   const volume = audio.createGain()
   oscillator.connect(volume)
   volume.connect(audio.destination)
-  volume.gain.value = 0.01
+  volume.gain.value = 0.1
   return oscillator
 }
 

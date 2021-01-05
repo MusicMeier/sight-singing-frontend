@@ -6,7 +6,7 @@ import Tuner from './Tuner'
 const SecondIntervals = ({intervalNotes}) => {
   const [showHint, setShowHint] = useState(false)
   const [index, setIndex] = useState(0)
-
+  console.log(index)
   const increment = () => {
     if(index < intervalNotes.length -1 ){
       setIndex(index + 1)
@@ -34,11 +34,11 @@ const SecondIntervals = ({intervalNotes}) => {
       }
     </div>
       <div className='interval-card-container'>
-          {eachNoteObject}
+          {eachNoteObject} 
       </div>
       <div className='button-container-intervals'>
         <div className='tuner-container'>
-          <Tuner nextButton={handleClick} noteObject={intervalNotes[index]}/>
+          <Tuner nextButton={index} noteObject={intervalNotes[index]}/>
         </div>
         <div>
           <button onClick={handleClick} className='screen-button'>Next</button>
