@@ -76,7 +76,7 @@ function Tuner({noteObject, currentIndex, pitch}) {
         ? <button className="play" onClick={handlePlay}>Play Tone</button> 
         : 
           <img 
-            src={'https://lh3.googleusercontent.com/proxy/SAyVWZ79sYPl5NT4Z4hiYkyGhDVgtsSGPVPsIUKqTGxUhiTA3LXGzyv1E6lngq17OzIVpq5IBOJoa6eIRpIswhsT6f3aOEGOFpayFxCxKssE4VveIvOpbMwKuFzWLkDPSA'} />
+            src={'https://i.imgur.com/lGdadk6.png'} />
           }
       <div className='pitch-sentences-container'>
         <div className='pitch-sentences'>
