@@ -30,11 +30,11 @@ const ThirdIntervals = ({intervalNotes}) => {
       }
     })
     
-    // return () => {
-    //   // this is called when the component is unmounted
-    //   // this is where you do the cleanup
-    //   mic.stop() // whatever the right code to stop the mic is
-    // }
+    return () => {
+      // this is called when the component is unmounted
+      // this is where you do the cleanup
+      mic.stop() // whatever the right code to stop the mic is
+    }
   }, [])
 
   const increment = () => {

@@ -11,7 +11,8 @@ import {
 const initialState = {
   access: localStorage.getItem('access'),
   isAuthenticated: null,
-  user: null
+  user: null,
+  error: null
 }
 
 export default function (state = initialState, action) {
@@ -35,6 +36,14 @@ export default function (state = initialState, action) {
           access: payload.token
         }
     case LOGIN_FAILED:
+      localStorage.removeItem('access');
+      return {
+        ...state,
+        access: null,
+        isAuthenticated: false,
+        user: null,
+        error: 'incorrect username or password'
+      }
     case SIGNUP_FAILED:
     case LOGOUT_USER:
     case AUTHENTICATION_FAILED:

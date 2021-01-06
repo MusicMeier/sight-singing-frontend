@@ -1,7 +1,8 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import HomePage from './components/HomePage'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
+import { connect } from  'react-redux'
 import SightSinging from './components/SightSinging'
 import SecondIntervals from './components/SecondIntervals'
 import ThirdIntervals from './components/ThirdIntervals'
@@ -20,7 +21,7 @@ import MainPage from './components/MainPage'
 
 const frequenciesUrl = 'http://localhost:8003/frequencies'
 
-function App() {
+function App({isAuthenticated}) {
 
   const [ notes, setNotes ] = useState([])
 
@@ -49,7 +50,9 @@ function App() {
         }} 
           />
         <Route path="/SightSinging" render={(routerProps) => {
-          return <SightSinging notes={notes} {...routerProps}/> 
+          return isAuthenticated 
+            ? <SightSinging notes={notes} {...routerProps}/> 
+            : <Redirect to='/login' />
         }} 
           />
         {/* <Route path="/homepage" render={(routerProps) => {
@@ -93,4 +96,10 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchProps = (state) => {
+  return {
+    isAuthenticated: state.auth.isAuthenticated
+  }
+}
+
+export default connect(mapDispatchProps)(App);

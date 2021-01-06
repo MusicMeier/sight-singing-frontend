@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { login } from '../actions/action.auth'
 
-const Login = ({ login, check_authenticated }) => {
+const Login = ({ login, check_authenticated, error }) => {
   const [loginData, setLoginData] = useState({
     username: '',
     password: ''
@@ -19,6 +19,8 @@ const Login = ({ login, check_authenticated }) => {
 
   if(check_authenticated) {
     return  <Redirect to='/mainpage' />
+  } else {
+    console.log(error)
   }
 
   const {username, password } = loginData;
@@ -56,7 +58,8 @@ const Login = ({ login, check_authenticated }) => {
 
 const mapDispatchProps = (state) => {
   return {
-    isAuthenticated: state.auth.check_authenticated
+    isAuthenticated: state.auth.check_authenticated,
+    error: state.auth.error
   }
 }
 
