@@ -44,9 +44,9 @@ function Tuner({noteObject, currentIndex, pitch}) {
         setShouldDisplaySecondPitch(true)
       } 
       if (frequency && shouldDisplaySuccess) {
-        setSecondPitchText(frequency)
-      } else {
         setSecondPitchText("No Pitch detected")
+      } else {
+        setSecondPitchText(frequency)
       }
       if(frequency && secondPitchIsCorrect(frequency, noteObject)){
         setShouldDisplaySecondPitch(false)
@@ -81,7 +81,7 @@ function Tuner({noteObject, currentIndex, pitch}) {
       <div className='pitch-sentences-container'>
         <div className='pitch-sentences'>
           { shouldDisplayPitch ? <div className="pitch">{pitchText}</div> : "" }
-          { shouldDisplaySuccess ? <div className='success-container'><p className="success">You sang: </p><p> </p><p className='correct-note'> {noteObject.noteNames[0]}!</p></div> : "" }
+          { shouldDisplaySuccess ? <div className='success-container'><p className="success">You sang: </p><p className='correct-note'> {noteObject.noteNames[0]}!</p></div> : "" }
           </div>
 
         <div className='pitch-sentences'>

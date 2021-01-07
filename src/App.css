@@ -5,6 +5,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Tangerine&display=swap');
 /* font-family: 'Tangerine', cursive; */
 
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+/* font-family: 'Courgette', cursive; */
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -110,6 +113,11 @@ header a {
   color: rgb(92, 89, 89);
 }
 
+.switch-account a {
+  color: white;
+  text-decoration: none;
+}
+
 .account-title {
   font-size: 40px;
   font-weight: 700;
@@ -205,6 +213,12 @@ header a {
   text-align: center;
   margin: auto;
   width: 80%;
+}
+
+.error-message-login {
+  padding-top: 12px;
+  color: rgba(122, 5, 5, 0.918);
+  font-weight: 600;
 }
 
 .login-button {
@@ -541,26 +555,32 @@ footer {
 
 .success-container {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   margin-bottom: 5px;
 }
 .success-container-1 {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  
 }
 
 .success {
   font-size: 16px;
-  padding-right: 4px;
+  font-weight: 600;
+  padding-right: 6px;
+  align-self: flex-start;
 }
 .second-success {
   font-size: 16px;
-  padding-right: 4px;
+  font-weight: 900;
+  padding-right: 6px;
+  align-self: flex-start;
 }
 
 .correct-note {
   /* font-family: 'Tangerine', cursive; */
-  font-family: 'Arizonia', cursive;
+  /* font-family: 'Arizonia', cursive; */
+  font-family: 'Courgette', cursive;
   font-weight: 700;
   font-size: 18px;
 }

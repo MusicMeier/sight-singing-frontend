@@ -12,15 +12,10 @@ const Login = ({ login, check_authenticated, error }) => {
   const onChange = (event) => setLoginData({...loginData,
   [event.target.name]: event.target.value})
 
-  const onSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
     login(username, password)
-  }
-
-  if(check_authenticated) {
-    return  <Redirect to='/mainpage' />
-  } else {
-    console.log(error)
+    console.log('handleSubmit')
   }
 
   const {username, password } = loginData;
@@ -31,7 +26,7 @@ const Login = ({ login, check_authenticated, error }) => {
           <h1 className='account-title'>Sign in Below:</h1>
         </div>
         <div className='form-section-2'>
-          <form onSubmit={(event) => onSubmit(event)} className='login-form'>
+          <form onSubmit={handleSubmit} className='login-form'>
             <input 
               type="text" 
               onChange={(event) => onChange(event)} 
@@ -47,6 +42,7 @@ const Login = ({ login, check_authenticated, error }) => {
               placeholder='password' />
             <button type='submit' className='login-button'>LOGIN</button>
           </form>
+            { error ? <p className='error-message-login'>{error}</p> : null }
         </div>
         <div className='form-section-3'>
           <h6 className='switch-account'>Don't have an account <Link to='/signup'>Create Account</Link></h6>

@@ -28,12 +28,20 @@ export default function (state = initialState, action) {
 
       }
     case LOGIN_SUCCESS:
+      localStorage.setItem('access', payload.token);
+        return {
+          ...state,
+          isAuthenticated: true,
+          access: payload.token,
+          error: null
+        }
     case SIGNUP_SUCCESS:
         localStorage.setItem('access', payload.token);
         return {
           ...state,
           isAuthenticated: true,
-          access: payload.token
+          access: payload.token,
+          error: null
         }
     case LOGIN_FAILED:
       localStorage.removeItem('access');

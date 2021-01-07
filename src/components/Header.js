@@ -7,7 +7,7 @@ import Login from './Login'
 const Header = ({logout}) => {
   return (
     <header className='nav-bar'>
-      <h1 className='header-title'>KeyIntervals</h1>
+      <h1 className='header-title'>MusicTutor</h1>
       <nav>
         <Link to='/SightSinging'>Sight Singing</Link>
         <Link to='/'>Home</Link>
