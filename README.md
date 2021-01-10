@@ -57,7 +57,7 @@ You are now ready to start using the first iteration of MusicTutor!<br>
 
 <p>Inside of your terminal run: <code>docker build -t sight-singing-frontend:lts -f Dockerfile .</code></p>
 <p>Once the container is built, run: <code>docker run -d -p 8087:3000 --name sight-singing-frontend sight-singing-frontend:lts </code></p>
-<br></br>
+<br>
 <p>On your browser you can see the code by going to "localhost:8087" Make sure the backend is running in order to retrieve all of the information.</p>
 
 ### `yarn start`
