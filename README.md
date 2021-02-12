@@ -1,6 +1,6 @@
 # sight-singng-frontend
 <h1>MusicTutor</h1>
-An app to help user practive sight singing.
+An app to help user practice sight singing.
 <br></br>
 <h2>General Info</h2>
 <p>
